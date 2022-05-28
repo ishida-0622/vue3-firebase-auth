@@ -1,24 +1,3 @@
-# vue_file
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Vue3 × Firebase Authentication
+Vueの勉強のために試しに作ってみたものです。<br>
+[デモページ](https://k-ishida-vue-firebase-auth.web.app/)
