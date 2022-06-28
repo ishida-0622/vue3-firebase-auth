@@ -8,26 +8,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
+import { defineComponent } from "vue";
 import { onAuthStateChanged, signOut, deleteUser, User } from "firebase/auth";
-import { auth } from '../firebase/config';
+import { auth } from "../firebase/config";
 import router from "@/router";
 
-export default defineComponent ({
+export default defineComponent({
     name: "SignIn",
-    data():{
-        mail: string | null
-        user: User | null
+    data(): {
+        mail: string | null;
+        user: User | null;
     } {
         return {
             mail: null,
             user: null,
-        }
+        };
     },
     methods: {
         logout() {
             signOut(auth).then(() => {
-                router.push("/")
+                router.push("/");
             });
         },
         userDelete() {
@@ -40,9 +40,9 @@ export default defineComponent ({
             deleteUser(this.user).then(() => {
                 router.push("/");
             });
-        }
+        },
     },
-    created () {
+    created() {
         onAuthStateChanged(auth, (u) => {
             if (u) {
                 this.user = u;
