@@ -26,14 +26,12 @@ export default defineComponent({
         login() {
             signInWithEmailAndPassword(auth, this.mail, this.pass).then(() => {
                 router.push("/mypage");
-            }).catch(e => {
-                switch (e.code){
-                    case AuthErrorCodes.USER_DELETED:
-                    case AuthErrorCodes.INVALID_PASSWORD:
-                        alert("メールアドレスもしくはパスワードが間違っています")
-                        break;
-                    default:
-                        alert(e);
+            }).catch((e) => {
+                const errorCode = e.code;
+                if (errorCode === AuthErrorCodes.USER_DELETED || errorCode === AuthErrorCodes.INVALID_PASSWORD) {
+                    alert("メールアドレスもしくはパスワードが間違っています");
+                } else {
+                    alert(`Error\n${errorCode}`)
                 }
             });
         },
